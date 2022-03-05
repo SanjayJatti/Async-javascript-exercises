@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterfall</title>
+</head>
+<body>
+    <h1>Waterfall Data</h1>
+    <script>
+        const fakefetch = (msg, shouldResolve) =>{
+            return new Promise((resolve, reject) => {
+            setTimeout(() =>{
+                shouldResolve ? resolve(`Success: ${msg}`) : reject(`Failed: ${msg}`)
+            }, 3000)
+            })
+        }
+
+        const syncCallsToServer = (msg1, msg2) =>{
+            fakefetch(msg1, true)
+            .then(res1 => 
+            fakefetch(msg2,true)
+            .then(res2 => console.log(res1, res2)))
+        }
+
+        syncCallsToServer("result1", "result2")
+
+        //async-await
+        const asyncCallsToServer = async (msg1, msg2) =>{
+            const res1 = await fakefetch(msg1, true)
+            const res2 =  await fakefetch(msg2, true)
+            console.log(res1, res2)
+        }
+        asyncCallsToServer("result1", "result2")
+
+    </script>
+</body>
+</html>

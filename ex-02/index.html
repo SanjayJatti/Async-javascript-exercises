@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async : ex 02</title>
+</head>
+<body>
+    <h1>ex2: write your own function which takes a callback#</h1>
+    <script>
+        const strLength = (name, callback) => {
+            const nameLength = name.length;
+            callback(nameLength);
+        }
+
+        strLength("Sanjay", (nameLength) => console.log(`OMG! My name is ${nameLength} char long`))
+     
+    </script>
+    
+</body>
+</html>

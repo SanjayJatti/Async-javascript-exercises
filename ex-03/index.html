@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async : ex 03</title>
+</head>
+<body>
+    <h1>live ex3: function which takes two callbacks</h1>
+    <script>
+        const willThanosKillMe = (name, cbKill, cbNotkill) => {
+            const length = name.length;
+            return  length % 2 === 0 ? cbNotkill() : cbKill()
+        }
+
+        willThanosKillMe("Sanjay", () => console.log(`Give my boat speakers and apple headphones to my sister`), () => console.log(`Yay! I am alive!`))
+    </script>
+    
+</body>
+</html>
